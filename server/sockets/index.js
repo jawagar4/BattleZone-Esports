@@ -7,7 +7,24 @@ const User = require('../models/User');
 let io = null;
 
 function initSockets(httpServer) {
-  io = new Server(httpServer, { cors: { origin: config.CLIENT_URL.split(','), credentials: true } });
+  
+    const allowedOrigins = [
+    ...new Set([
+      ...String(config.CLIENT_URL || "")
+        .split(",")
+        .map((origin) => origin.trim())
+        .filter(Boolean),
+      "https://battle-zone-esports.vercel.app",
+      "http://localhost:5173",
+    ]),
+  ];
+   io = new Server(httpServer, {
+    cors: {
+      origin: allowedOrigins,
+      methods: ["GET", "POST"],
+      credentials: true,
+    },
+  });
 
   io.use(async (socket, next) => {
     try {
