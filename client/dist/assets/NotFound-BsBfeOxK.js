@@ -1,0 +1,1 @@
+import{a as e,r as t}from"./vendor-DRv3sqdz.js";import{t as n}from"./index-0OdzDT8p.js";var r=t();function i(){return(0,r.jsx)(`div`,{className:`container bz-page`,children:(0,r.jsx)(n,{icon:`bi-compass`,title:`Page not found`,action:(0,r.jsx)(e,{to:`/`,className:`btn btn-bz`,children:`Back to home`}),children:`That page doesn't exist or has moved.`})})}export{i as default};

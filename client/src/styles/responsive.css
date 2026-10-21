@@ -1,0 +1,40 @@
+/* Mobile-first adjustments (320px and up) */
+img, svg { max-width: 100%; }
+.container { padding-left: 16px; padding-right: 16px; }
+.table-responsive { -webkit-overflow-scrolling: touch; }
+.bz-card { padding: 1rem; }
+.hero { padding: 3rem 0 3rem; }
+.bz-section { padding: 3rem 0; }
+.cd-unit { min-width: 46px; }
+.cd.lg .cd-unit { min-width: 58px; }
+.cd.lg .cd-unit b { font-size: 1.7rem; }
+
+/* Stacked cards instead of wide tables on phones */
+@media (max-width: 767.98px) {
+  .stack-table thead { display: none; }
+  .stack-table, .stack-table tbody, .stack-table tr, .stack-table td { display: block; width: 100%; }
+  .stack-table tr { border: 1px solid var(--bz-line); margin-bottom: .75rem; padding: .5rem .75rem; background: rgba(10,17,32,.5); }
+  .stack-table td { border: 0; padding: .3rem 0; display: flex; justify-content: space-between; gap: 1rem; text-align: right; }
+  .stack-table td::before { content: attr(data-label); color: var(--bz-muted); font-size: .8rem; text-align: left; flex: none; }
+  .stack-table td[data-label=""]::before { display: none; }
+  .stack-table td.actions { justify-content: flex-start; flex-wrap: wrap; }
+  .admin-shell .sidebar { position: static !important; width: 100% !important; flex-direction: row; overflow-x: auto; }
+  .bz-modal-backdrop { padding: 0; }
+  .bz-modal { max-width: 100%; min-height: 100vh; }
+  .bz-modal .bz-card { min-height: 100vh; clip-path: none; }
+  .mobile-pay-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1040; background: rgba(7,11,20,.96); border-top: 1px solid var(--bz-line); padding: .75rem 16px calc(.75rem + env(safe-area-inset-bottom, 0)); }
+  body.has-pay-bar { padding-bottom: 88px; }
+}
+@media (min-width: 768px) {
+  .container { padding-left: 24px; padding-right: 24px; }
+  .hero { padding: 5rem 0 4.5rem; }
+  .bz-section { padding: 4.5rem 0; }
+  .bz-card { padding: 1.25rem; }
+  .cd-unit { min-width: 54px; }
+  .cd.lg .cd-unit { min-width: 72px; }
+  .cd.lg .cd-unit b { font-size: 2.2rem; }
+  .admin-shell { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .admin-shell .sidebar { width: 220px; flex: none; position: sticky; top: 84px; }
+  .admin-shell .admin-main { flex: 1; min-width: 0; }
+}
+@media (min-width: 992px) { .hero { padding: 6rem 0 5rem; } }
